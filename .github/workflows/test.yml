@@ -6,7 +6,7 @@ on:
 jobs:
   print-secrets:
     runs-on: ubuntu-latest
-    environment: my-environment   # must hold SAMPLE_ENV_SECRET
+    environment: test   # must hold SAMPLE_ENV_SECRET
     steps:
       - name: Log secrets
         env:
