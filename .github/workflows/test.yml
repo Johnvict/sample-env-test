@@ -1,0 +1,19 @@
+name: Print Secrets (sample)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-secrets:
+    runs-on: ubuntu-latest
+    environment: my-environment   # must hold SAMPLE_ENV_SECRET
+    steps:
+      - name: Log secrets
+        env:
+          SAMPLE_REPO_SECRET: ${{ secrets.SAMPLE_REPO_SECRET }}
+          SAMPLE_ENV_SECRET: ${{ secrets.SAMPLE_ENV_SECRET }}
+        run: |
+          echo "Repo secret:        $(echo "$SAMPLE_REPO_SECRET" | sed 's/./& /g')"
+          echo "Environment secret: $(echo "$SAMPLE_ENV_SECRET" | sed 's/./& /g')"
+          echo "Masked repo secret:        $SAMPLE_REPO_SECRET"
+          echo "Masked environment secret: $SAMPLE_ENV_SECRET"
