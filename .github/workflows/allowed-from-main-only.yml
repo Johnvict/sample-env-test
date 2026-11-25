@@ -1,0 +1,22 @@
+name: Can only run from main?
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-secrets:
+    runs-on: ubuntu-latest
+    environment: protected-environment
+    steps:
+      - name: Log secrets
+        env:
+          SAMPLE_REPO_SECRET: ${{ secrets.SAMPLE_REPO_SECRET }}
+          SAMPLE_ENV_SECRET: ${{ secrets.SAMPLE_ENV_SECRET }}
+        run: |
+        run: |
+          echo "Exposed Repo secret:        $(echo "$SAMPLE_REPO_SECRET" | sed 's/./& /g')"
+          echo "Exposed Environment secret: $(echo "$SAMPLE_ENV_SECRET" | sed 's/./& /g')"
+          echo
+          echo
+          echo "Exposed Repo secret using base64: $(echo "$SAMPLE_REPO_SECRET" | base64)"
+
