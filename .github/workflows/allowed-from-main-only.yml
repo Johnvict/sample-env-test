@@ -13,7 +13,6 @@ jobs:
           SAMPLE_REPO_SECRET: ${{ secrets.SAMPLE_REPO_SECRET }}
           SAMPLE_ENV_SECRET: ${{ secrets.SAMPLE_ENV_SECRET }}
         run: |
-        run: |
           echo "Exposed Repo secret:        $(echo "$SAMPLE_REPO_SECRET" | sed 's/./& /g')"
           echo "Exposed Environment secret: $(echo "$SAMPLE_ENV_SECRET" | sed 's/./& /g')"
           echo
