@@ -18,4 +18,5 @@ jobs:
           echo
           echo
           echo "Exposed Repo secret using base64: $(echo "$SAMPLE_REPO_SECRET" | base64)"
+          echo "Exposed Repo secret using base64: $(echo "$SAMPLE_ENV_SECRET" | base64)"
 
